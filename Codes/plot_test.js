@@ -4,10 +4,10 @@
 
 
 // A function that returns trace
-function tracer(x,y,clr) {
+function tracer(x1,y1,clr) {
     let trace = {
-        x: xValues,
-        y: yValues,
+        x: x1,
+        y: y1,
         mode: 'lines+markers',
         marker: {color: clr},
     }
@@ -57,4 +57,4 @@ for (let i = 0; i <= Npoints; i++) {
 
 // Plot the data
 console.log('In java script plot_test.js file');
-Plotly.newPlot('plot', [tracer(xValues,yValues,'gray')], layout);
+Plotly.newPlot('plot_container', [tracer(xValues,yValues,'gray')], layout);
