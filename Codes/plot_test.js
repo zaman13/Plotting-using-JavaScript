@@ -3,13 +3,24 @@
 // JavaScript plotting test using Plotly library
 
 
+// My plot wrapper (Oct. 23, 2024)
+
+function z__plot(loc_ref, xp, yp, cl, xlabel, ylabel ){
+    
+    const lout = {
+        xaxis: { title: xlabel },
+        yaxis: { title: ylabel},
+    }
+    Plotly.newPlot(loc_ref, [tracer(xp, yp, cl)], lout);
+}
+
 // A function that returns trace
-function tracer(x1,y1,clr) {
+function tracer(x1,y1,cl) {
     let trace = {
         x: x1,
         y: y1,
         mode: 'lines+markers',
-        marker: {color: clr},
+        marker: {color: cl},
     }
     return trace;
 };
@@ -57,4 +68,6 @@ for (let i = 0; i <= Npoints; i++) {
 
 // Plot the data
 console.log('In java script plot_test.js file');
-Plotly.newPlot('plot_container', [tracer(xValues,yValues,'gray')], layout);
+//Plotly.newPlot('plot_container', [tracer(xValues,yValues,'gray')], layout);
+
+z__plot('plot_container', xValues, yValues, 'green', 'x', 'f(x)');

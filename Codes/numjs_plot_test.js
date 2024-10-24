@@ -9,4 +9,6 @@ let y_list = y_set.tolist();
 
 
 // Plot the data
-Plotly.newPlot('numjs_container', [tracer(t_list,y_list,'darkred')], layout);
+//Plotly.newPlot('numjs_container', [tracer(t_list,y_list,'darkred')], layout);
+
+z__plot('numjs_container', t_list, y_list, 'red', 't', 'g(t)');
