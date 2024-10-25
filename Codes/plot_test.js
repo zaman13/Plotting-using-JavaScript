@@ -5,30 +5,9 @@
 
 // My plot wrapper (Oct. 23, 2024)
 
-function z__plot(loc_ref, xp, yp, cl, xlabel, ylabel ){
-    
-    const lout = {
-        xaxis: { title: xlabel },
-        yaxis: { title: ylabel},
-    }
-    Plotly.newPlot(loc_ref, [tracer(xp, yp, cl)], lout);
-}
 
-// A function that returns trace
-function tracer(x1,y1,cl) {
-    let trace = {
-        x: x1,
-        y: y1,
-        mode: 'lines+markers',
-        marker: {color: cl},
-    }
-    return trace;
-};
 
-const layout = {
-    xaxis: { title: 'time (s)' },
-    yaxis: { title: 'Function value'},
-}
+
     
 
 
@@ -42,32 +21,37 @@ function my_math_test(x){
    return yout;
 }
 
-// Parameters
 
-const Npoints = 500;
-const t_start = 0;
-const t_end = 40;
-const del_t = (t_end-t_start)/Npoints;
+{ // Creating block scope
 
+    // Parameters
 
-
-// Generate data points
-
-// Initialize arrays and independent variable
-let xValues = [];
-let yValues = [];
-let t = 0;
-
-// populate array
-for (let i = 0; i <= Npoints; i++) {
-    xValues[i] = t;
-    yValues[i] = my_math_test(t);
-    t = t + del_t;
-}
+    const Npoints = 500;
+    const t_start = 0;
+    const t_end = 40;
+    const del_t = (t_end-t_start)/Npoints;
 
 
-// Plot the data
-console.log('In java script plot_test.js file');
-//Plotly.newPlot('plot_container', [tracer(xValues,yValues,'gray')], layout);
 
-z__plot('plot_container', xValues, yValues, 'green', 'x', 'f(x)');
+    // Generate data points
+
+    // Initialize arrays and independent variable
+    let xValues = [];
+    let yValues = [];
+    let t = 0;
+
+    // populate array
+    for (let i = 0; i <= Npoints; i++) {
+        xValues[i] = t;
+        yValues[i] = my_math_test(t);
+        t = t + del_t;
+    }
+
+
+    // Plot the data
+    console.log('In java script plot_test.js file');
+    //Plotly.newPlot('plot_container', [tracer(xValues,yValues,'gray')], layout);
+
+    z__plot('plot_container', xValues, yValues, 'green', 'x', 'f(x)');
+
+} // Ending block scope
