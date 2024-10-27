@@ -5,11 +5,11 @@
 // This js file shold be called ahead of the other js files since
 // it has the functins the other js file needs to call
 
-function z__plot(loc_ref, xp, yp, cl, xlabel, ylabel ){
+function z__plot(loc_ref, xp, yp, ymin, ymax, cl, xlabel, ylabel ){
     
     const lout = {
         xaxis: { title: xlabel },
-        yaxis: { title: ylabel},
+        yaxis: { title: ylabel, range: [ymin, ymax]},
     }
     Plotly.newPlot(loc_ref, [tracer(xp, yp, cl)], lout);
 }

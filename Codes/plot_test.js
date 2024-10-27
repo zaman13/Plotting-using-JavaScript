@@ -52,6 +52,6 @@ function my_math_test(x){
     console.log('In java script plot_test.js file');
     //Plotly.newPlot('plot_container', [tracer(xValues,yValues,'gray')], layout);
 
-    z__plot('plot_container', xValues, yValues, 'green', 'x', 'f(x)');
+    z__plot('plot_container', xValues, yValues, Math.min(yValues), Math.max(yValues), 'green', 'x', 'f(x)');
 
 } // Ending block scope
